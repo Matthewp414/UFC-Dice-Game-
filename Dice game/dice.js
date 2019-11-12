@@ -14,61 +14,110 @@ chooseWeight();
 function chooseWeight(){
 	let validWeightChoice = false;
 
-	let weight = prompt("What Weight-Class Will You Pick Options:(WW, LHW, HW)")
-	if (weight == WW){
+	while(validWeightChoice == false){
+		let weight = prompt("What Weight-Class Will You Pick Options:(WW, LHW, HW)")
+			
+		switch(weight)
+			
+			case "WW":
+			userWeight = 150:
+			validWeightChoice=true:
+			
+			break;
+			
+			case "LHW":
+			userWeight = 185:
+			validWeightChoice=true:
+
+			break;
+
+			case "HW":
+			userWeight = 245:
+			validWeightChoice=true:
+			
+			break;
+
+			default:
+			break;
+	}
 	
-		userWeight = 150;
-	}
-	else if (weight == LHW){
-		userWeight = 185;
-	}
-	else if (weight == HW){
-		userWeight = 245;
-	}
-	else{
-		chooseWeight()
-	}
-	console.log("You Weigh" + " " + userWeight);
+	console.log("You Weigh" + " " + userWeight + "lb" + " " +"BE READY FOR WEIGH IN LIMITS (WW 170lb, LHW 205lb, HW 265lb");
 }
 // CALLS FOR UPGRADE
 function getWinUpgrade(){
-	let upgradePoint = prompt("UPGRADE OPTIONS:(AP, EP, BP, HP, BEEF)")
-	if (upgradePoint == AP){
-		console.log("You get + 2AP");
-		userAP += 2; 
-	}
-	else if (upgradePoint == EP){
-		console.log("You get + 3EP");
-		userEP += 3;
-	}
-	else if (upgradePoint == BP){
-		console.log("You get + 3BP");
-		userBP += 3;
+	let validUpgradeChoice = false;
 
-	}
-	else if (upgradePoint == BEEF){
-		console.log("You gotta roll!");
-		userWeight += roll(12);
-		let weightRollAgain = prompt("Wanna roll again? Y/N?");
-			if (weightRollAgain == "Y") {
-				userWeight += roll(12);
-			}
-			else if (weightRollAgain == "N"){
-				console.log("okay")
-			}
-			else{
-				console.log("RETRY")
+	while(validUpgradeChoice == false){
+		let upgradePoint = prompt("UPGRADE OPTIONS:(AP, EP, BP, HP, BEEF)")
+		
+		switch(upgradePoint)
 
-			}
+			case "AP":
+			console.log("You get + 2AP"):
+			userAP += 2:
+			validUpgradeChoice=true:
+
+			break;
+
+			case "EP":
+			console.log("You get + 3EP"):
+			userEP += 3:
+			validUpgradeChoice=true:
+
+			break;
+
+			case "BP":
+			console.log("You get + 3BP"):
+			userBP += 3:
+			validUpgradeChoice=true:
+
+			break;
+
+			case "HP":
+			console.log("You gotta roll for ya health"):
+			let healPointRoll = roll(10):
+			console.log("your roll is " + healPointRoll):
+			userHP += healPointRoll
+			validUpgradeChoice=true:
+			
+			break;
+
+			case "BEEF"
+			console.log("You gotta roll!"):
+			userWeight += roll(12):
+			console.log(userWeight):
+			
+				let validYesOrNo = false
+
+				while(validYesOrNo == false){
+					let weightRollAgain = prompt("Wanna roll again? Y/N?");
+
+					switch(weightRollAgain)
+
+					case "Y"
+					userWeight += roll(12):
+					console.log(userWeight):
+					validYesOrNo=true:
+
+					break;
+
+					case "N"
+					console.log("Gotcha Big Man!"):
+					validYesOrNo=true:
+
+					break;
+
+					default
+					break;
+				
+				}
+				validUpgradeChoice=true:
+				
+				break;
+
+				default
+				break;	
 	}
-	else if (upgradePoint == HP){
-		console.log("Rooooolll!");
-	}
-	else{
-		console.log("RETRY")
-		getWinUpgrade();
-	}
-	
 }
 function getLossUpgrade(){
 	let upgradePoint = prompt("UPGRADE OPTIONS:(AP, EP, BP, HP, BEEF)")
