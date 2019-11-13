@@ -260,10 +260,9 @@ function fightNickD(){
 				console.log("you are attacking with a PUNCH")
 				nickHealth -= (userAP + roll(6)) * 2
 				console.log("nicks health is at " + nickHealth)
-				let nickMove = roll(3)
-				nickMove = nickMove - 1
-				let moveSwitchNick = botsMove[nickMove]
-					switch(nickMove){
+				let nickMove = roll(3)				
+				let moveSwitchNick = nickMove - 1
+					switch(moveSwitchNick){
 						
 						case 0:
 							console.log("He's punching")
@@ -323,9 +322,8 @@ function fightNickD(){
 								console.log("your health is at " + userHealth)
 							}
 				let nickMove2 = roll(3);
-				nickMove2 -= 1
-				let moveSwitchNick2 = botsMove[nickMove2]
-					switch(nickMove2){
+				let moveSwitchNick2 = nickMove2 - 1
+					switch(moveSwitchNick2){
 						
 						case 0:
 							console.log("He's punching")
@@ -371,8 +369,7 @@ function fightNickD(){
 				console.log("you are gonna put your hands up and re-gain your strength")
 				userHealth += userBP + roll(20)
 				let nickMove3 = roll(3);
-				nickMove3 -= 1
-				let moveSwitchNick3 = botsMove[nickMove3]
+				let moveSwitchNick3 = nickMove3 - 1
 					switch(nickMove3){
 						
 						case 0:
@@ -420,9 +417,11 @@ function fightNickD(){
 		
 		}
 	if (userHealth <= 0) {
+		console.log("youve been knocked out")
 		roundResult = "loss"
 	}
   	else if (nickHealth <= 0) {
+		console.log("Nick is out cold!")
 		roundResult = "win"
 	}
 	else{
@@ -431,8 +430,10 @@ function fightNickD(){
 	}
 	
 	
-	roundEnd(roundResult)
+	return roundResult;
+	
 
 }
 // gameStart();
-fightNickD();
+let endResultNickFight = fightNickD();
+roundEnd(endResultNickFight);
